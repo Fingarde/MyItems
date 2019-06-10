@@ -2,6 +2,9 @@ package fr.fingarde.myitems;
 
 
 import org.bukkit.Color;
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 
@@ -208,5 +211,14 @@ public class MyItem
         return drops;
     }
 
+
+    public ItemStack toItemStack()
+    {
+        ItemStack itemStack = new ItemStack(Material.getMaterial(baseItem.toString()));
+
+        ItemMeta meta = itemStack.getItemMeta();
+
+        return null;
+    }
 
 }

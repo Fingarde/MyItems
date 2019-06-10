@@ -155,7 +155,6 @@ public class Main extends JavaPlugin
                         else {printError(localizedItem.toString(), "armorThougness isn't a valid number");}
 
                         if(!item.containsKey("durability")) printError(localizedItem.toString(), "The item don't have durability value");
-
                         if (item.get("durability").getClass() == Long.class)
                         {
                             durability = Math.toIntExact((Long) item.get("durability"));
@@ -240,13 +239,14 @@ public class Main extends JavaPlugin
                         myItem = new MyItem(localizedName, name, itemType, baseItem, texture, maxStackSize, durability, attackSpeed , attackDamage);
                         break;
                     case BLOCK:
-                        if(item.get("drops").getClass() != JSONArray.class) {/* TODO ERROR */}
+                        if(!item.containsKey("drops")) printError(localizedItem.toString(), "The item don't have drops");
+                        if(item.get("drops").getClass() != JSONArray.class) {printError(localizedItem.toString(), "drops isn't a list");}
                         JSONArray jsonArray = (JSONArray) item.get("drops");
                         ArrayList<String> drops = new ArrayList<>();
 
                         for(Object object : jsonArray)
                         {
-                            if(object.getClass() != String.class)  {/* TODO ERROR */}
+                            if(object.getClass() != String.class)  {printError(localizedItem.toString(), "value in drops isn't string");}
 
                             drops.add((String) object);
                         }
