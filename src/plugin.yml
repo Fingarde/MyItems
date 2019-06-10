@@ -1,0 +1,5 @@
+main: fr.fingarde.myitems.Main
+name: MyItems
+version: 1.0.0
+author: Fingarde
+description: Plugin that allow you to add items to Minecraft

@@ -8,12 +8,14 @@ import java.util.ArrayList;
 public class MyItem
 {
     private String localizedName;
+    private String name;
     private ItemType type;
     private BaseItem baseItem;
     private String texture;
     private int maxStackSize;
 
     private int durability;
+    private boolean unbreakable;
 
     private Color color;
     private int armor;
@@ -22,19 +24,21 @@ public class MyItem
     private int attackDamage;
     private ArrayList<String> drops;
 
-    public MyItem(String localizedName, ItemType type, BaseItem baseItem, String texture, int maxStackSize)
+    public MyItem(String localizedName, String name, ItemType type, BaseItem baseItem, String texture, int maxStackSize)
     {
         this.localizedName = localizedName;
+        this.name = name;
         this.type = type;
         this.baseItem = baseItem;
         this.texture = texture;
         this.maxStackSize = maxStackSize;
+
     }
 
-
-    public MyItem(String localizedName, ItemType type, BaseItem baseItem, String texture, int maxStackSize, int durability, int attackSpeed, int attackDamage)
+    public MyItem(String localizedName, String name, ItemType type, BaseItem baseItem, String texture, int maxStackSize, int durability, int attackSpeed, int attackDamage)
     {
         this.localizedName = localizedName;
+        this.name = name;
         this.type = type;
         this.baseItem = baseItem;
         this.texture = texture;
@@ -44,9 +48,10 @@ public class MyItem
         this.attackDamage = attackDamage;
     }
 
-    public MyItem(String localizedName, ItemType type, BaseItem baseItem, String texture, int maxStackSize, int durability, Color color, int armor, int armorThougness)
+    public MyItem(String localizedName, String name, ItemType type, BaseItem baseItem, String texture, int maxStackSize, int durability, Color color, int armor, int armorThougness)
     {
         this.localizedName = localizedName;
+        this.name = name;
         this.type = type;
         this.baseItem = baseItem;
         this.texture = texture;
@@ -57,9 +62,11 @@ public class MyItem
         this.armorThougness = armorThougness;
     }
 
-    public MyItem(String localizedName, ItemType type, BaseItem baseItem, String texture, int maxStackSize, int durability, ArrayList<String> drops)
+
+    public MyItem(String localizedName, String name, ItemType type, BaseItem baseItem, String texture, int maxStackSize, int durability, ArrayList<String> drops)
     {
         this.localizedName = localizedName;
+        this.name = name;
         this.type = type;
         this.baseItem = baseItem;
         this.texture = texture;
@@ -136,6 +143,11 @@ public class MyItem
     public String getLocalizedName()
     {
         return localizedName;
+    }
+
+    public String getName()
+    {
+        return name;
     }
 
     public ItemType getType()
